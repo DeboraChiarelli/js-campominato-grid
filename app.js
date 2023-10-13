@@ -15,10 +15,15 @@ const buttonDomElement = document.getElementById('button');
 console.log(buttonDomElement);
 //  - al quale click partirà l'intera funzione
 buttonDomElement.addEventListener('click', function () {
-    squaresContainerDomElement.innerHTML = ''; //- per far si che non si aggiungano altri quadrati oltre i 100 già generati al primo click
+    squaresContainerDomElement.innerHTML = ''; //- per far si che non si aggiungano altri quadrati oltre i 100 già generati al primo click, assegno il contenuto a stringa vuota
 //  - adesso posso generare i 100 quadrati attraverso il ciclo for
-    for (let i = 0; i < 100; i++)
-    console.log(i + 1);
-    const squareDom = `div class="square">${promptMail} è presente il lista`
+    for (let i = 0; i < 100; i++) {
+    let n = i + 1;
+    console.log(n);
+
+    const square = `<div class="square">${n}</div>`;
+//  - adesso posso riempire il contenitore dei quadrati e quindi la stringa
+    squaresContainerDomElement.innerHTML += square;
+    }
 })
 
