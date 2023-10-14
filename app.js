@@ -25,5 +25,19 @@ buttonDomElement.addEventListener('click', function () {
 //  - adesso posso riempire il contenitore dei quadrati e quindi la stringa
     squaresContainerDomElement.innerHTML += square;
     }
+//- recupero le caselle dal DOM dentro il click, perché altrimenti fuori dall'evento non ci sarebbero, è solo al click che compaiono
+    const squareDomElements = document.querySelectorAll('.square');
+    console.log(squareDomElements);
+//- aggiungo il ciclo for così da aggiungere su ogni quadratino un eventListener che ascolti il click quando ci clicco sopra
+    for (let i = 0; i < squareDomElements.length; i++) {
+        const currentSquareElement = squareDomElements[i]; //- prendo il quadratino corrente per poi assegnargli l'eventListener
+    //- assegno al quadratino corrente l'eventListener
+        currentSquareElement.addEventListener('click', function () {
+        console.log('click su quadratino numero: ' + (i + 1)) //- aggiungo tra parentesi i + 1, perché se mettessi solo i mi risulterebbe al click il numero prima, per questo aggiungo + 1, così mi darà il numero corrispondente. Nel ciclo for precedente infatti stampo n = i + 1
+    
+    //- assegno al quadratino il colore azzurro, dando al quadratino corrente la classe blue creata in css, attraverso classList.add
+        currentSquareElement.classList.add('blue');
+        })
+    }
 })
 
